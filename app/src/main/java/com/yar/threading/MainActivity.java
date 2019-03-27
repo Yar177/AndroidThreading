@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void expandableList(View view) {
-        Intent intent = new Intent(this, ExpandableListView.class);
+        Intent intent = new Intent(this, ExpandableListAdapter.class);
         startActivity(intent);
     }
 
