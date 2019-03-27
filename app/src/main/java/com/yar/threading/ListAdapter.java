@@ -1,9 +1,11 @@
 package com.yar.threading;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.TextView;
 
 import java.util.HashMap;
 import java.util.List;
@@ -23,32 +25,34 @@ public class ListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public int getGroupCount() {
-        return 0;
+        return movieList.size();
     }
 
     @Override
     public int getChildrenCount(int groupPosition) {
-        return 0;
+        return movieData.get(movieList.get(groupPosition)).size();
     }
 
     @Override
     public Object getGroup(int groupPosition) {
-        return null;
+        return movieList.get(groupPosition);
     }
 
     @Override
-    public Object getChild(int groupPosition, int childPosition) {
-        return null;
+    public Object getChild(int parent, int child) {
+        return movieData.get(movieList.get(parent)).get(child);
+
     }
 
     @Override
     public long getGroupId(int groupPosition) {
+
         return 0;
     }
 
     @Override
-    public long getChildId(int groupPosition, int childPosition) {
-        return 0;
+    public long getChildId(int  parent, int child) {
+        return child;
     }
 
     @Override
@@ -62,8 +66,17 @@ public class ListAdapter extends BaseExpandableListAdapter {
     }
 
     @Override
-    public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        return null;
+    public View getChildView(int parent, int child, boolean isLastChild, View convertView, ViewGroup parentView) {
+        String childTitle = (String) getChild(parent, child);
+
+        if (convertView == null){
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.child_layout, parentView, false);
+        }
+
+        TextView childTextView = (TextView) convertView.findViewById(R.id.child_txtv);
+        childTextView.setText(childTitle);
+        return convertView;
     }
 
     @Override
