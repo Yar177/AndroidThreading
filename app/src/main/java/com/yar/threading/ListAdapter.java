@@ -47,7 +47,7 @@ public class ListAdapter extends BaseExpandableListAdapter {
     @Override
     public long getGroupId(int groupPosition) {
 
-        return 0;
+        return groupPosition;
     }
 
     @Override
