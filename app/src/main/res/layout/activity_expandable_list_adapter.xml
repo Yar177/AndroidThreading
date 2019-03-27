@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ExpandableListAdapter">
+
+    <ExpandableListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/expandableListAdapter"
+        android:layout_margin="8dp"
+        android:divider="@color/colorAccent"
+        android:dividerHeight="0.5dp"
+
+        >
+
+
+    </ExpandableListView>
+
+</android.support.constraint.ConstraintLayout>
