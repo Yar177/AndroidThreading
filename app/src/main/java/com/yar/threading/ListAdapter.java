@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -62,7 +64,17 @@ public class ListAdapter extends BaseExpandableListAdapter {
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        return null;
+        String groupTitle = (String) getGroup(groupPosition);
+        if (convertView == null){
+            LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.parent_layout, parent, false);
+
+        }
+        TextView parentTextview = (TextView) convertView.findViewById(R.id.parent_txtv);
+
+
+
+        return convertView;
     }
 
     @Override
